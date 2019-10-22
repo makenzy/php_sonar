@@ -1,22 +1,9 @@
-language: php
-
-sudo: false
-
-php:
-  - 5.6
-  - 7.0
-
-before_script:
-  - composer install --prefer-source
-
-script: ./vendor/bin/phpunit --colors tests
-
-cache:
-    directories:
-        - vendor
-
+dist: trusty
 addons:
   sonarcloud:
-    organization: "sanogotech"
+    organization: "makenzy"
     token:
-      secure: "40a7da271b785f757f93fd9f2dffc6428297882a" # encrypted value of your token
+      secure: "0260447d77a33f81ad0695af2423d5ec7399cc1b" # encrypted value of your token
+      
+script:
+- sonar-scanner
