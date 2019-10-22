@@ -1,0 +1,22 @@
+language: php
+
+sudo: false
+
+php:
+  - 5.6
+  - 7.0
+
+before_script:
+  - composer install --prefer-source
+
+script: ./vendor/bin/phpunit --colors tests
+
+cache:
+    directories:
+        - vendor
+
+addons:
+  sonarcloud:
+    organization: "sanogotech"
+    token:
+      secure: "40a7da271b785f757f93fd9f2dffc6428297882a" # encrypted value of your token
